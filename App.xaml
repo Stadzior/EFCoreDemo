@@ -1,9 +1,7 @@
-﻿<Application x:Class="EFCoreDemo.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:EFCoreDemo"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
+﻿<Application
+    x:Class="EFCoreDemo.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:EFCoreDemo">
+    <Application.Resources />
 </Application>
