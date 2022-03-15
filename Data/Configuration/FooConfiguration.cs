@@ -19,10 +19,7 @@ public class FooConfiguration : IEntityTypeConfiguration<Foo>
             .HasMaxLength(50);
 
         builder
-            .HasOne(foo => foo.Bar)
-            .WithMany(bar => bar.Foos)
-            .IsRequired()
-            .HasForeignKey(foo => foo.BarId)
-            .OnDelete(DeleteBehavior.ClientSetNull);
+            .HasMany(foo => foo.Bars)
+            .WithMany(bar => bar.Foos);
     }
 }

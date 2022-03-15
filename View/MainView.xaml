@@ -9,21 +9,25 @@
     DataContext="{Binding MainViewModel, Source={x:Static Application.Current}}"
     mc:Ignorable="d">
     <Grid>
-        <ListView ItemsSource="{Binding Path=Foos, UpdateSourceTrigger=PropertyChanged}">
+        <ListView ItemsSource="{Binding Path=BarFoos, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
                         Width="100"
-                        DisplayMemberBinding="{Binding Path=Id}"
-                        Header="Id" />
+                        DisplayMemberBinding="{Binding Path=FooId}"
+                        Header="FooId" />
                     <GridViewColumn
                         Width="100"
-                        DisplayMemberBinding="{Binding Path=Name}"
-                        Header="Name" />
+                        DisplayMemberBinding="{Binding Path=FooName}"
+                        Header="FooName" />
                     <GridViewColumn
                         Width="100"
-                        DisplayMemberBinding="{Binding Path=Bar.Name}"
-                        Header="Bar" />
+                        DisplayMemberBinding="{Binding Path=BarId}"
+                        Header="BarId" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Path=BarName}"
+                        Header="BarName" />
                 </GridView>
             </ListView.View>
         </ListView>

@@ -21,6 +21,21 @@ namespace EFCoreDemo.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("BarFoo", b =>
+                {
+                    b.Property<int>("BarsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FoosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BarsId", "FoosId");
+
+                    b.HasIndex("FoosId");
+
+                    b.ToTable("BarFoo");
+                });
+
             modelBuilder.Entity("EFCoreDemo.Data.Model.Bar", b =>
                 {
                     b.Property<int>("Id")
@@ -43,6 +58,21 @@ namespace EFCoreDemo.Migrations
                         {
                             Id = 1,
                             Name = "Bar1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Bar2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Bar3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Bar4"
                         });
                 });
 
@@ -54,9 +84,6 @@ namespace EFCoreDemo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("BarId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -64,38 +91,34 @@ namespace EFCoreDemo.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BarId");
-
                     b.ToTable("Foo", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            BarId = 1,
                             Name = "Foo1"
                         },
                         new
                         {
                             Id = 2,
-                            BarId = 1,
                             Name = "Foo2"
                         });
                 });
 
-            modelBuilder.Entity("EFCoreDemo.Data.Model.Foo", b =>
+            modelBuilder.Entity("BarFoo", b =>
                 {
-                    b.HasOne("EFCoreDemo.Data.Model.Bar", "Bar")
-                        .WithMany("Foos")
-                        .HasForeignKey("BarId")
+                    b.HasOne("EFCoreDemo.Data.Model.Bar", null)
+                        .WithMany()
+                        .HasForeignKey("BarsId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Bar");
-                });
-
-            modelBuilder.Entity("EFCoreDemo.Data.Model.Bar", b =>
-                {
-                    b.Navigation("Foos");
+                    b.HasOne("EFCoreDemo.Data.Model.Foo", null)
+                        .WithMany()
+                        .HasForeignKey("FoosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

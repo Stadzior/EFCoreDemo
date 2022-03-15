@@ -10,13 +10,16 @@ public static class Configuration
         modelBuilder
             .Entity<Bar>()
             .HasData(
-                new Bar { Id = 1, Name = "Bar1" }
+                new Bar { Id = 1, Name = "Bar1" },
+                new Bar { Id = 2, Name = "Bar2" },
+                new Bar { Id = 3, Name = "Bar3" },
+                new Bar { Id = 4, Name = "Bar4" }
             );
         modelBuilder
             .Entity<Foo>()
             .HasData(
-                new Foo { Id = 1, Name = "Foo1", BarId = 1 },
-                new Foo { Id = 2, Name = "Foo2", BarId = 1 }
+                new Foo { Id = 1, Name = "Foo1" },
+                new Foo { Id = 2, Name = "Foo2" }
             );
     }
 }
