@@ -15,6 +15,5 @@ public class MyDbContext : DbContext
     {
         new FooConfiguration().Configure(modelBuilder.Entity<Foo>());
         new BarConfiguration().Configure(modelBuilder.Entity<Bar>());
-        Migration.Configuration.Seed(modelBuilder);
     }
 }

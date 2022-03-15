@@ -58,26 +58,6 @@ namespace EFCoreDemo.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Bar",
-                columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Bar1" },
-                    { 2, "Bar2" },
-                    { 3, "Bar3" },
-                    { 4, "Bar4" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Foo",
-                columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Foo1" },
-                    { 2, "Foo2" }
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_BarFoo_FoosId",
                 table: "BarFoo",

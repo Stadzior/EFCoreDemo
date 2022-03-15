@@ -52,28 +52,6 @@ namespace EFCoreDemo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bar", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Bar1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Bar2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Bar3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Bar4"
-                        });
                 });
 
             modelBuilder.Entity("EFCoreDemo.Data.Model.Foo", b =>
@@ -92,18 +70,6 @@ namespace EFCoreDemo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Foo", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Foo1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Foo2"
-                        });
                 });
 
             modelBuilder.Entity("BarFoo", b =>

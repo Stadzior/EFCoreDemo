@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using EFCoreDemo.Data;
+using EFCoreDemo.Data.Migration;
 using EFCoreDemo.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,8 @@ public partial class App : Application
                 services.AddSingleton<MainWindow>();
                 services.AddSingleton<MainViewModel>();
             }).Build();
+
+        Configuration.Seed(Host.Services.GetService<IDbContextFactory<MyDbContext>>()!.CreateDbContext());
     }
     protected override void OnStartup(StartupEventArgs args)
     {
