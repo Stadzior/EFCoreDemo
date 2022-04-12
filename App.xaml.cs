@@ -25,7 +25,7 @@ public partial class App : Application
             .Build();
 
         Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
-            .ConfigureServices((_, services) =>
+            .ConfigureServices(services =>
             {
                 services.AddDbContextFactory<MyDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MyDbContext")));
                 services.AddSingleton<MainWindow>();
